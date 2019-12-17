@@ -49,8 +49,8 @@ public class MergeSortSolution {
     }
 
     private void merge(int[] a, int p, int q, int r) {
-        int i = p, j = q + 1, k = 0;        // 初始化变量i, j, k
-        int[] tmp = new int[r - p + 1];     // 申请一个大小跟A[p...r]一样的临时数组
+        int i = p, j = q + 1, k = 0;        // 初始化变量i, j, k, 这里赋值是为了保留p、q、r的原始值不被修改
+        int[] tmp = new int[r - p + 1];     // 申请一个大小跟A[p...r]一样的临时数组， 从0开始所以需要加1
 
         while (i <= q && j <= r) {
             if (a[i] <= a[j]) {
@@ -61,8 +61,8 @@ public class MergeSortSolution {
         }
 
         // 判断哪个子数组中有剩余的数据
-        int star = i, end = q;
-        if (j <= r) {
+        int star = i, end = q;      //默认设定从i到q的数组有剩余数据
+        if (j <= r) {               //如果是j到r的数组有剩余数据
             star = j;
             end = r;
         }
