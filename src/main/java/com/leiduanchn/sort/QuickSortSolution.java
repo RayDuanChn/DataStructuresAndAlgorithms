@@ -57,6 +57,11 @@ public class QuickSortSolution {
      */
     private int partition(int[] a, int p, int r) {
         int i = p, j = p;
+
+        // 优化选择pivot，采用三数中值分割法
+        int mid = p + (r - p) / 2;
+        // 交换中值和最后一个值， 然后按照选最后值处理
+        swap(a, mid, r);
         int pivot = a[r];
 
         for (; j < r; j++) {        // loop： p to r-1
